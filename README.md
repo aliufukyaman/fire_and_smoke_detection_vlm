@@ -72,14 +72,14 @@ The Blip model generates a caption for a given *image*. My approach was to searc
 By searching for these keywords, I achieved the best results for both classes. (Accuracy results are discussed below.)
 
 Also keeping *num_beams* low (1 actually in my case) performed the best accuracy as it directly focus on the content.
-On my setup, the inference time with GPU adn CPU is around 50ms and 600ms respectively. 
+On my setup, the inference time with GPU and CPU is around 50ms and 600ms respectively. 
 #### CLIP Model:
 The CLIP model takes an *image* and *multiple text* descriptions (2 or more) and uses softmax to calculate the probability of how well the texts align with the image. Based on my tests, I found out that the most successful pair of text values for CLIP were:
 - “A photo of a dangerous burning fire or smoke”
 - “A photo of a calm scene without any fire or smoke”
 
 Also setting the threshold for fire and smoke probability around 0.85 performed with the best accuracy in my case.
-On my setup, the inference time with GPU adn CPU is around 20ms and 250ms respectively. 
+On my setup, the inference time with GPU and CPU is around 20ms and 250ms respectively. 
 
 #### BLIP Model VS CLIP Model:
 
@@ -94,7 +94,7 @@ This table summarizes the key differences between **BLIP (Bootstrapped Language-
 | **Training Strategy** | Multiple tasks (e.g., captioning, VQA) | Contrastive learning            |
 
 #### Fine-Tuning Results
-In addition to the above, I *fine-tuned* the Blip model, and this resulted with the highest accuracy I got.
+In addition to the above, I *fine-tuned* the BLIP model, and this resulted with the highest accuracy I got.
 The **reason I preferred BLIP model for finetuning** is just because its promising accuracy and robustness. CLIP model is more lightweight but at my case I prefered BLIP model as I cared more about accuracy.
 When fine-tuning, I trained the model using the following labels (ramdomly within the class) based on my dataset classes. The fine-tuned model learned to assign one of these captions to the images, effectively creating a highly successful classifier.
 
@@ -121,9 +121,9 @@ Here are the accuracy results for all tests:
 | BLIP (Fine-tuned) | 98.60%              | 99.80%                  |
 
 ### Model Availability and Test Environment
-Both the Blip Original and Blip Fine-tuned models are available within this Docker Project.
+Both the Blip original and Blip fine-tuned models are available within this Docker Project.
 
-The solution with the Blip Original and Clip Original models is deployed on *Hugging Face Space*:
+The solution with the Blip original and Clip original models is deployed on *Hugging Face Space*:
     ```bash
     https://huggingface.co/spaces/horizon1710/firesmoke_detection_with_vlm
 
@@ -133,4 +133,4 @@ The solution with the Blip Original and Clip Original models is deployed on *Hug
 In addition to the explanations above, I’ve documented the steps and processes directly in the code comments.
 
 ## Conclusion
-As a result, I have demonstrated that with powerful VLM models like Blip and CLIP, it’s possible to easily create simple classifiers with these powerful Vision Language Models, without the need for complex and time-consuming classifier & detector trainings. With minimal fine-tuning, these models can deliver excellent performance for these kind of problems.
+As a result, I have demonstrated that with powerful VLM models like BLIP and CLIP, it’s possible to easily create simple classifiers with these powerful Vision Language Models, without the need for complex and time-consuming classifier & detector trainings. With minimal fine-tuning, these models can deliver excellent performance for these kind of problems.
