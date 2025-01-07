@@ -42,13 +42,13 @@ For fire and smoke detection, I have worked with BLIP and CLIP. I’ll also brie
 Why it’s suitable: BLIP effectively recognizes complex patterns like smoke or fire and relates them to natural language descriptions. Its robust pretraining makes it ideal for diverse environments and dynamic events like fires and smoke. It performs high accuracy on Fire and Smoke classification. 
 2. **CLIP** (Contrastive Language-Image Pretraining)
 Overview: CLIP uses contrastive learning to associate images with textual descriptions, allowing zero-shot classification.
-Why it’s suitable: CLIP’s zero-shot learning capabilities make it flexible and effective for detecting fire or smoke with minimal labeled data. Its ability to generalize across different visual inputs is ideal for dynamic scenarios. It alsoperforms high accuracy on Fire and Smoke classification.
+Why it’s suitable: CLIP’s zero-shot learning capabilities make it flexible and effective for detecting fire or smoke with minimal labeled data. Its ability to generalize across different visual inputs is ideal for dynamic scenarios. It also performs high accuracy on Fire and Smoke classification.
 3. **UniT** (Unified Transformer for Vision-Language Tasks)
 Overview: UniT is a transformer-based model for a wide range of vision-language tasks, using a joint embedding space for images and text.
 Why it was not chosen: While versatile, UniT’s general-purpose design isn’t as suitable for fire and smoke detection as BLIP and CLIP, which are more optimized for task-specific learning, also accuracy with pretrained model was not sufficient.
 4. **ViLT** (Vision-and-Language Transformer)
 Overview: ViLT uses an efficient transformer architecture to process both images and text without convolutions.
-Why it was not chosen: ViLT is efficient but may lack the deep visual understanding needed for fire and smoke detection. BLIP multimodal learning capabilities provided better context and accuracy for this task.
+Why it was not chosen: ViLT is efficient but may lack the deep visual understanding needed for fire and smoke detection. BLIP and CLIP multimodal learning capabilities provided better context and accuracy for this task.
 
 
 ## Model Evaluation and Fine-tuning
@@ -63,7 +63,7 @@ For evaluating and fine-tuning the models, I used publicly available datasets:
 From these datasets, I selected 1000 images containing fire and smoke and 1000 images without fire and smoke. I divided the data into training (80%), validation (10%), and test (10%) sets, which corresponds to **1600** training images, **200** validation images, and **200** test images. (I’ve also included this dataset in the repository.)
 
 ### Approaches & Fine-Tuning
-Before fine-tuning the Blip model, I tried different approaches.
+Before fine-tuning the Blip model, I tried different approaches to increase the accuracy of Fire and Smoke classification..
 
 #### Blip Model:
 The Blip model generates a caption for a given *image*. My approach was to search for *specific keywords* within the generated captions. After extensive testing, I determined the following keywords to be the most relevant:
