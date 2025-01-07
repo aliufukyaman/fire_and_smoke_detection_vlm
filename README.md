@@ -23,8 +23,8 @@ The application provides a single REST API endpoint that accepts an image and a 
 
 1. Clone this repository:
     ```bash
-   git clone https://github.com/aliufukyaman/fire_and_smoke_detector_with_vlm.git
-   cd fire_and_smoke_detector_with_vlm
+   git clone https://github.com/aliufukyaman/fire_and_smoke_detection_vlm.git
+   cd fire_and_smoke_detection_vlm
 2. Build the Docker image:
     ```bash
     docker-compose build
