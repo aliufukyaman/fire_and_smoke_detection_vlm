@@ -192,12 +192,15 @@
                 resultDiv.style.display = 'block';
                 
                 if (data.success) {
-                    if (data.analysis_result.has_fire) {
+                    if (data.analysis_result.has_fire === true) {
                         resultIcon.innerHTML = '<i class="fas fa-fire success"></i>';
                         resultCaption.textContent = 'Fire & Smoke Detected!';
-                    } else {
+                    } else if (data.analysis_result.has_fire === false) {
                         resultIcon.innerHTML = '<i class="fas fa-check-circle danger"></i>';
                         resultCaption.textContent = 'No Fire & Smoke Detected!';
+                    } else if (data.analysis_result.has_fire === null) {
+                        resultIcon.innerHTML = '<i class="fas fa-file-excel danger"></i>'; // file not found simgesi
+                        resultCaption.textContent = 'Fine-tuned model file not found';
                     }
                 } else {
                     resultIcon.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #ff9800;"></i>';

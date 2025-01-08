@@ -124,7 +124,6 @@ Here are the accuracy results for all tests:
 Both the Blip original and Blip fine-tuned models are available within this Docker Project.
 
 The solution with the Blip original and Clip original models is deployed on *Hugging Face Space*:
-    ```bash
     https://huggingface.co/spaces/horizon1710/firesmoke_detection_with_vlm
 
 ![Fire Detection Docker Example](images/fire_smoke_hfs.jpg)
