@@ -67,7 +67,7 @@ Before fine-tuning the Blip model, I tried different approaches to increase the 
 
 #### Blip Model:
 The Blip model generates a caption for a given *image*. My approach was to search for *specific keywords* within the generated captions. After extensive testing, I determined the following keywords to be the most relevant:
-- “fire,” “smoke,” “flame,” “burning,” “blaze,” “explosion,” and “burn.” 
+- “fire”, “smoke”, “flame”, “burn”, “blaze”, “explosion”, and “burn” 
 
 By searching for these keywords, I achieved the best results for both classes. (Accuracy results are discussed below.)
 
@@ -75,8 +75,8 @@ Also keeping *num_beams* low (1 actually in my case) performed the best accuracy
 On my setup, the inference time with GPU and CPU is around 50ms and 600ms respectively. 
 #### CLIP Model:
 The CLIP model takes an *image* and *multiple text* descriptions (2 or more) and uses softmax to calculate the probability of how well the texts align with the image. Based on my tests, I found out that the most successful pair of text values for CLIP were:
-- “A photo of a dangerous burning fire or smoke”
-- “A photo of a calm scene without any fire or smoke”
+- “A photo of a dangerous burning fire or smoke.”
+- “A photo of a calm scene without any fire or smoke.”
 
 Also setting the threshold for fire and smoke probability around 0.85 performed with the best accuracy in my case.
 On my setup, the inference time with GPU and CPU is around 20ms and 250ms respectively. 
